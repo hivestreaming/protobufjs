@@ -1,6 +1,6 @@
 {
   "name": "@hivestreaming/protobufjs",
-  "version": "4.1.3",
+  "version": "4.2.0",
   "description": "Protocol Buffers for JavaScript.",
   "main": "dist/ProtoBuf.js",
   "bin": {
