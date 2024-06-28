@@ -4,11 +4,6 @@ npm-debug.log
 sandbox/
 v8.log
 
-# Node
-node_modules
-build
-dist
-
 # Misc
 .idea
 .vscode
