@@ -32,6 +32,7 @@ extends:
     isSnapshot: ${{ parameters.isSnapshot }}
     useExistingTag: false
     workingDirectory: .
+    prePublishImage: azure-devops-agent/client/builder/javascript
     prePublish:
     - template: templates/install.yml
     - template: templates/build.yml
