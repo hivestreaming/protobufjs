@@ -1,7 +1,7 @@
 {
-  "name": "protobufjs",
+  "name": "@hivestreaming/protobufjs",
   "version": "4.1.3",
-  "description": "Protocol Buffers for JavaScript. Finally.",
+  "description": "Protocol Buffers for JavaScript.",
   "author": "Daniel Wirtz <dcode@dcode.io>",
   "contributors": [
     "Frank Xu <yyfrankyy@gmail.com>"
@@ -37,7 +37,7 @@
     "testjs": "~1 >=1.0.4",
     "fixture-stdout": "^0.2.1",
     "metascript": ">=0.18 <1",
-    "closurecompiler": "~1",
+    "google-closure-compiler-js": "20200719.0.0",
     "jsdoc": "~3.3.0-alpha10"
   },
   "license": "Apache-2.0",
