@@ -3,6 +3,14 @@ steps:
     displayName: Install Node.js
     inputs:
       versionSpec: 16.x
+  - script: |
+      SECRET=$(echo -n "$NEXUS_USERNAME:$NEXUS_PASSWORD" | base64)
+      echo "//nexus.devops.hivestreaming.net/repository/npm-group/:_auth=${SECRET}" > $HOME/.npmrc
+      echo "//nexus.devops.hivestreaming.net/repository/:_auth=${SECRET}" >> $HOME/.npmrc
+    displayName: Npm Registry
+    env:
+      NEXUS_USERNAME: $(nexus-username)
+      NEXUS_PASSWORD: $(nexus-password)
   - task: npmAuthenticate@0
     displayName: Npm Authenticate
     inputs:
