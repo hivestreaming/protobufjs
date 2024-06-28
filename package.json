@@ -8,8 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hivestreaming/protobufjs"
+    "url": "https://github.com/hivestreaming/protobuf.js.git"
   },
+  "bugs": {
+    "url": "https://github.com/hivestreaming/protobuf.js/issues"
+  },
+  "homepage": "https://github.com/hivestreaming/protobuf.js",
   "keywords": [
     "net",
     "buffer",
