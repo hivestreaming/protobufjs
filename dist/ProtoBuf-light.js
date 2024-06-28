@@ -429,10 +429,10 @@
         TYPEDEF: /^[a-zA-Z][a-zA-Z_0-9]*$/,
 
         // Type references
-        TYPEREF: /^(?:\.?[a-zA-Z_][a-zA-Z_0-9]*)+$/,
+        TYPEREF: /^(?:\.?[a-zA-Z_][a-zA-Z_0-9]*)(?:\.[a-zA-Z_][a-zA-Z_0-9]*)*$/,
 
         // Fully qualified type references
-        FQTYPEREF: /^(?:\.[a-zA-Z][a-zA-Z_0-9]*)+$/,
+        FQTYPEREF: /^(?:\.[a-zA-Z_][a-zA-Z_0-9]*)+$/,
 
         // All numbers
         NUMBER: /^-?(?:[1-9][0-9]*|0|0[xX][0-9a-fA-F]+|0[0-7]+|([0-9]*(\.[0-9]*)?([Ee][+-]?[0-9]+)?)|inf|nan)$/,
@@ -1552,9 +1552,12 @@
                 MessagePrototype.set = function(keyOrObj, value, noAssert) {
                     if (keyOrObj && typeof keyOrObj === 'object') {
                         noAssert = value;
-                        for (var ikey in keyOrObj)
-                            if (keyOrObj.hasOwnProperty(ikey) && typeof (value = keyOrObj[ikey]) !== 'undefined')
+                        var keys = Object.keys(keyOrObj);
+                        for (var i = 0, l = keys.length; i < l; i++) {
+                            var ikey = keys[i];
+                            if (typeof (value = keyOrObj[ikey]) !== 'undefined')
                                 this.$set(ikey, value, noAssert);
+                        }
                         return this;
                     }
                     var field = T._fieldsByName[keyOrObj];
@@ -1960,14 +1963,15 @@
                     }
                     // Everything else is a non-null object
                     var type = obj.$type,
-                        field = undefined;
-                    for (var i in obj)
-                        if (obj.hasOwnProperty(i)) {
-                            if (type && (field = type.getChild(i)))
-                                clone[i] = cloneRaw(obj[i], binaryAsBase64, longsAsStrings, field.resolvedType);
-                            else
-                                clone[i] = cloneRaw(obj[i], binaryAsBase64, longsAsStrings);
-                        }
+                        field = undefined,
+                        keys = Object.keys(obj);
+                    for (var i = 0, l = keys.length; i < l; i++) {
+                        var key = keys[i];
+                        if (type && (field = type.getChild(key)))
+                            clone[key] = cloneRaw(obj[key], binaryAsBase64, longsAsStrings, field.resolvedType);
+                        else
+                            clone[key] = cloneRaw(obj[key], binaryAsBase64, longsAsStrings);
+                    }
                     return clone;
                 }
 
