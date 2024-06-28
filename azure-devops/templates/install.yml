@@ -11,10 +11,5 @@ steps:
     env:
       NEXUS_USERNAME: $(nexus-username)
       NEXUS_PASSWORD: $(nexus-password)
-  - task: npmAuthenticate@0
-    displayName: Npm Authenticate
-    inputs:
-      workingFile: .npmrc
-      customEndpoint: npm registry readonly
   - script: npm ci
     displayName: Npm Install
