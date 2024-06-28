@@ -3,3 +3,13 @@ npm-debug.log
 .idea/
 sandbox/
 v8.log
+
+# Node
+node_modules
+build
+dist
+
+# Misc
+.idea
+.vscode
+.DS_Store
