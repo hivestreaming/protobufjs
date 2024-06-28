@@ -2,22 +2,14 @@
   "name": "@hivestreaming/protobufjs",
   "version": "4.1.3",
   "description": "Protocol Buffers for JavaScript.",
-  "author": "Daniel Wirtz <dcode@dcode.io>",
-  "contributors": [
-    "Frank Xu <yyfrankyy@gmail.com>"
-  ],
   "main": "dist/ProtoBuf.js",
   "bin": {
     "pbjs": "./bin/pbjs"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dcodeIO/ProtoBuf.js.git"
+    "url": "https://github.com/hivestreaming/protobufjs"
   },
-  "bugs": {
-    "url": "https://github.com/dcodeIO/ProtoBuf.js/issues"
-  },
-  "homepage": "https://github.com/dcodeIO/ProtoBuf.js",
   "keywords": [
     "net",
     "buffer",
